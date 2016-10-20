@@ -26,21 +26,17 @@ window.getDeck = function() {
   return cards;
 }
 
-var randomDeal = function(){
-return Math.floor(Math.random()*51)
-}
-var randomCard = function(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 $(function() {
   $("#deal").on("click", function(event) {
     event.preventDefault()
-    var c1= window.getDeck()[randomDeal()]
-    var c2= window.getDeck()[randomCard(0,51)]
-    var c3= window.getDeck()[randomDeal()]
-    var c4= window.getDeck()[randomDeal()]
-    var c5= window.getDeck()[randomDeal()]
+    var deck = getDeck();
+    deck.shuffle();
+    var c1= deck [0]
+    var c2= deck [1]
+    var c3= deck [2]
+    var c4= deck [3]
+    var c5= deck [4]
     $("#c1").attr("src", "http://golearntocode.com/images/cards/"+ c1 + ".png")
     $("#c2").attr("src", "http://golearntocode.com/images/cards/"+ c2 + ".png")
     $("#c3").attr("src", "http://golearntocode.com/images/cards/"+ c3 + ".png")
